@@ -1,17 +1,16 @@
 {
   "type": "module",
-  "name": "aula",
+  "name": "aula1",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "show.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "prompt-sync": "^4.2.0"
-  },
-  "devDependencies": {},
-  "description": ""
+  }
 }
