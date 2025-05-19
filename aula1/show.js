@@ -1,31 +1,33 @@
-import promptsync from 'prompt-sync';
-const prompt = promptsync({sigint: true});
+import promptsync from "prompt-sync";
+const prompt = promptsync({ sigint: true });
 
-const valorIngresso = 500;
-let categoria = prompt('O valor do ingresso é 500 R$, Por favor, digite sua categoria: ')
-switch(categoria){
-    case 'geral':
-        valorCobrado = 500
-        break;
-    case 'convidado':
-        valorCobrado = 500 * 0.25
-        break;
-    case 'idoso':
-        valorCobrado = 500 * 0.50
-        break;
-    case 'funcionario':
-        valorCobrado = 500 * 0.50
-        break;
-    case 'funcionario idoso':
-        valorCobrado = 250 * 0.50
-        break;
-    case 'crianca':
-        valorCobrado = 0
-        break; 
+let valorIngresso = 500;
+let valorCobrado = valorIngresso;
+let categoria = prompt(
+  "O valor do ingresso é 500 R$, Por favor, digite sua categoria: "
+);
 
-    
-
-    
+switch (categoria) {
+  case "crianca":
+    valorCobrado = 0;
+    break;
+  case "convidado":
+    valorCobrado = valorCobrado * 0.75;
+    break;
+  case "funcionarioIdoso":
+    valorCobrado = valorCobrado * 0.5;
+    break;
+  case "idoso":
+  case "funcionario":
+    valorCobrado = valorCobrado * 0.5;
+    break;
+  case "geral":
+    break;
+  default:
+    valorCobrado = NaN;
 }
-
-
+if (!isNaN(valorCobrado)) {
+  console.log(`Valor cobrado: R$${valorCobrado.toFixed(2)}`);
+} else {
+  console.log("Categoria invalida");
+}
